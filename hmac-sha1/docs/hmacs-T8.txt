@@ -1,0 +1,15 @@
+key: shortkey
+message: This is a short input file.\n
+
+Round #1
+hex k[i] ^ 0x36: 455e5944425d534f; ASCII: E^YDB]SO
+ipad: E^YDB]SO66666666666666666666666666666666666666666666666666666666
+
+digest: d29201a1816bcfc28022a617a88139e51c420d4e
+
+Round #2
+hex k[i] ^ 0x5c: 2f34332e28373925; ASCII: /43.(79%
+
+opad: /43.(79%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+digest: 71F2C106747B13CB4755A4050934A7BB53BE467A

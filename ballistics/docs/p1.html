@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>CSC230 Project 1 – </title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="./style.css" type="text/css" />
+</head>
+<body>
+<h1 id="csc230-project-1">CSC230 Project 1</h1>
+<p>This is your first, easy project. The others will be larger and more interesting. This one will let you get you started writing, formatting, compiling, and executing simple C programs. This requires that you familiarize yourself with the <a href="https://www.csc2.ncsu.edu/courses/csc230/CommonPlatform.pdf">Common Platform</a> and our <a href="https://www.csc2.ncsu.edu/courses/csc230/coding_style.html">Coding Style Guidelines</a>. A full list of the relevant <a href="#outcomes">Learning Outcomes</a> is included at the end of this page.</p>
+<p>This project is to be done individually.</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>There is a starter file for this project, <a href="starter1.tgz" class="uri">starter1.tgz</a>. This file is a compressed tar archive containing several files you'll need. You'll need to unpack the files inside to get started. There are a couple of ways you can do this.</p>
+<ul>
+<li>If you'd like, you can download the starter using a web browser on your local system, using the link above. Then use an sftp client or a tool like ExpanDrive to copy the archive to a location in your AFS space where you want to work on this assignment. For work on this project, I'd suggest making a directory for CSC 230 projects, then make a subdirectory under it for project 1.<br />
+Log in on a common platform machine, change directories to the path where you plan to work and then unpack the archive using a command like the following:</li>
+</ul>
+<pre><code>$ tar xzvf starter1.tgz</code></pre>
+<ul>
+<li>Or, if you're already logged in on a common platform system, you can download the starter using curl instead of a web browser. Make a directory where you'd like to work on the project, and <strong>cd</strong> to that directory. Then, you can download and unpack the starter right in that directory. The following commands should do the job:</li>
+</ul>
+<pre><code>$ curl -O https://www.csc2.ncsu.edu/courses/csc230/proj/p1/starter1.tgz
+$ tar xzvf starter1.tgz</code></pre>
+<p>In general, when we grade your programs, we expect them to behave exactly as described in the assignment. This includes producing the right output with the right spacing and line termination. The project 1 starter includes some input files and expected output files to help you make sure your programs are behaving correctly. As described below, you can capture your program's output in a file and then use the <code>diff</code> command to compare the output you got with the output we were expecting you to get. If <code>diff</code> sees any differences, even in spacing or line termination, it will tell you where they are. There's a little guide linked from the course home page explaining <a href="https://www.csc2.ncsu.edu/courses/csc230/guide/diff.pdf">how to use diff</a> and how to read its output.</p>
+<h1 id="part-0-registering-with-ncsu-github-a-very-easy-10-pts">Part 0 : Registering with NCSU GitHub (a very easy 10 pts)</h1>
+<p>Using a web browser, visit <a href="http://github.ncsu.edu">github.ncsu.edu</a> and log in with your unity credentials. If you're not able to log in on this website, inform the instructor immediately (i.e., <strong>before</strong> the deadline).</p>
+<p>We'll be using NCSU's GitHub for submitting future assignments. This is an opt-in system, which means that the initial login is required so that you are recognized as a user. If you are not in the system, we won't be able to create the repositories that you will be using for the rest of the course, and you won't be able to complete future assignments.</p>
+<p>Maybe you've used git and github before. That's great, but keep in mind that you'll need to use your assigned repo, hosted on NC State's GitHub for future projects.</p>
+<h2 id="grading">Grading</h2>
+<p>You'll get your 10 points just for logging in on the NCSU github. This is a really easy 10 points to earn. There is nothing to turn in for this part of the assignment. If you run into trouble logging in, be sure to let us know before the deadline, so we can try to help you out.</p>
+<h1 id="part-1-correcting-style-25-pts">Part 1 : Correcting Style (25 pts)</h1>
+<p>The program, <a href="style.c" class="uri">style.c</a> is an example of some bad style. It has everything, bad or missing comments, bad curly bracket placement, some hard tabs for indentation, some bad line termination, no line termination at the end of the last line, maybe more problems. Edit this program to make it consistent with the <a href="https://www.csc2.ncsu.edu/courses/csc230/coding_style.html">class style guidelines</a>.</p>
+<p>If you'd like, you can use an IDE or some other tool to help you format the source code. If you have trouble removing the windows-style line termination, you might want to try the <code>dos2unix</code> command installed on the common platform systems. For invisible parts of the source file (like spaces or line termination), you might want to use the <code>hexdump</code> program. If you run it like the following, it will show the sequence of characters in the source file, in hexadecimal on the left and as symbols on the right where possible:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">hexdump</span> -C style.c</code></pre></div>
+<p>When your program runs (even before you correct the style), it should exit with a successful exit status and produce output like the following. The starter also includes a expected-s.txt file you can use to make sure your style-corrected program produces exactly the output we're expecting (a randomly-generated paragraph of text).</p>
+<pre><code>wlrb mqbhcd r owkk hiddqsc xrjm wfr sjyb dbef arcbynecd ggx pklore
+nmpa qfwkho kmcoqhnw kuewhsqmgb uqcljj vsw dkqtbxi mvtrrbljpt snfwzqfj
+fadrrwsof b nuvqhff saqxwpqcac hchzv rkmlno jkpqpx jxkitzyx cbhhkic
+oendtomfg wdwf gpxiq kuytdlcgde htaciohor tq vwcsgspqo msb agu nny
+nz gd wpbtr blnsade guumoqc rubetoky hoachwdvmx rdryxl n qtukwa mleju
+wci xubume meya drmydiajxl ghiqfmz lvihjo vsuyoyp yul eim otehzri c
+kpggkbb p zrzu xamludf kgruowz i oobpple lwphapjna qhdcnvwdtx bmyppp
+uxnspusgd iixqmbfjxj v djsuyib ebmws q oygyxym evypzvje ebeocfu
+sxdixtigsi ehkch dflilrjq nxzt rsvbspkyh enbppkqtp dbuotbbqcw vrf ju jd
+tg iqvdg ijvwcya bwewpjvyg hljxepb iwuqzdzu du zv fspqp wuz f ovydd
+Words: 103</code></pre>
+<p>This program's output depends on the random number generator. If you run it on a system that's not a common platform machine, you may get a different sequence of random numbers, so your output may not match the expected output. Be sture to check it on a real comman platform system to make sure you're getting the output we expect.</p>
+<p>The style guide requires particular types of block comments before each function and at the top of each file. After reformatting the program, add thse comments. You may need to read the code for the various functions so your comments can summarize what they each do. You'll also find some opportunities to replace some magic numbers wiht meaningfully-named comments.</p>
+<p>For this part of the assignment, you'll be submitting your modified source file, <code>style.c</code>, to the Project 1 assignment in Moodle. Your submission will be graded according to the following:</p>
+<ul>
+<li>Correcting source code formatting: 10 points</li>
+<li>Adding the required block comments: 10 points</li>
+<li>Program still compiles cleanly and produces the right output: 5 points</li>
+</ul>
+<h1 id="part-2-text-box-25-pts">Part 2 : Text Box (25 pts)</h1>
+<p>Have a look at the <a href="textbox.c" class="uri">textbox.c</a> source file. This program is intended to give you a chance to try reading input character-by-character using getchar() and printing characters using putchar(). The overall skeleton of this program is done for you, but you'll need to fill in the bodies of the functions to get it working.</p>
+<p>The job of this program is to print text from standard input, but with a border around the text. The figure below shows how it's supposed to work.</p>
+<div class="figure">
+<img src="textbox.png" alt="Figure: job of the textbox.c program, wrapping a border around input text." />
+<p class="caption">Figure: job of the textbox.c program, wrapping a border around input text.</p>
+</div>
+<p>The border drawn around the text is a fixed-width, and made from a chosen character. It should be tall enough to contain every line read from standard input. Both the box width and the character it's made of are specified via preprocessor constants, so it would be easy to change them and then re-compile the program. We'll use a border that's made of asterisks and contains lines of 60 characters (so, a lot wider than the figure above shows). This width value is the length of each line of text <em>inside</em> the border. With a border character at the start and end of each output line, these will actually be two characters longer. So, by default, output lines will all be 62 characters, with 60 characters in between he first and last character of the border.</p>
+<p>Input lines may not all be exactly the right length (probably, they won't be). So, as you're printing, you'll have to pad with spaces on the right for lines that are too short. For lines that are too long, you'll discard extra characters on the right, printing as many as you can and reading (and ignoring) everything else up to the end of the line.</p>
+<h2 id="design-and-implementation">Design and Implementation</h2>
+<p>Your program will define and use the following three functions. You can have more if you want, but we'll be looking for at least these three.</p>
+<ul>
+<li><p><code>void lineOfChars( char ch, int count )</code><br />
+This function prints out multiple copies of the given character, followed by a newline. The number of copies is determined by the count parameter. Use this function to help print the top and bottom border around the text.</p></li>
+<li><p><code>bool paddedLine()</code><br />
+This function will read and print a single line of text inside the border. If there's no line of text to print (i.e., it hits EOF before it can read any characters), it will return false to tell the caller that there's no more text to put in the box. This function will read the text from standard input and print to standard output. If the line of text isn't long enough, it will add extra spaces at the end to make the box rectangular. If a line of text is too long, it will discard extra characters on the line (i.e., up to the end-of-line) to keep the box rectangular.</p>
+<p>This function is probably the most fun/tricky part of this assignment. The test cases provided with the starter will help you try out your function's behavior and make sure it's doing the right thing in all situations. When printing out a line in the middle part of the text box, you can either make main() responsible for printing the border characters at the start and the end, or you can make this function handle it, whichever seems easier to you.</p></li>
+<li><p><code>int main()</code><br />
+This is, of course, the starting point of your program. It will use the other two functions to print the text from standard input with a border around it.</p></li>
+</ul>
+<p>Be sure to fill in the empty block comments in this program according to the style guide. Remember, a file comment has a short summary of the file/program, along with a file and an author tag. A block comment on a function needs a short summary of what the function does, along with param tags for any parameters the function takes, and return tag if it's not a void function.</p>
+<h2 id="testing">Testing</h2>
+<p>Compile your program using the following command.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -Wall -std=c99 textbox.c -o textbox</code></pre></div>
+<p>You can run the program and type input to it yourself, but the output will look a lot better if you use redirection to read input from a file. If you just want to see what your program's output looks like, you can run it like:</p>
+<pre><code>$ ./textbox &lt; input-t1.txt</code></pre>
+<p>If you really want to make sure your output is right, you can capture the output in file and compare it against one of our expected output examples. Try running your program as follows to tell it to read input from our first test case (input-t1.txt) and send output to a file named <code>output.txt</code>. Then, check your programs exit status to make sure it reported successful execution, and use diff to help make sure it produced output that matches what we were expecting.</p>
+<pre><code>$ ./textbox &lt; input-t1.txt &gt;| output.txt
+$ echo $?
+0
+$ diff output.txt expected-t1.txt</code></pre>
+<p>You can use similar commands to test your program against each of the four test cases we're providing. Here's what they each do:</p>
+<ol style="list-style-type: decimal">
+<li>This test input contains five lines, each one 60 characters long, exactly long enough to fill a line of the box. It should be easy.</li>
+<li>This test has lines that are all shorter than the box width, so they'll all have to be padded with extra spaces at the end to make the box the right width.</li>
+<li>This test has some lines that are too long, so the extra characters at the end will have to be discarded as the line is processed.</li>
+<li>This test contains a few lines of text, some that have to be padded with spaces and some (one) that has to be truncated.</li>
+</ol>
+<p>Remember, you need check the exit status right after you run your program. If you get an exit status of zero and diff doesn't report any differences between the expected output and the actual output you got, then it looks like your program is behaving correctly. If diff notices any differences, it will report the line number where there's a discrepancy, along with the contents of the lines that don't match. If you have trouble interpreting the output of diff, you can try out the <code>sdiff</code> command. This works like diff, but it will display the expected and actual output files side by side, and may make it easier to see inconsistencies between the files. To use sdiff, just replace <code>diff</code> with <code>sdiff</code> in the shell code above.</p>
+<h2 id="grading-1">Grading</h2>
+<p>For this part of the assignment, you'll be submitting your modified source file, <code>textbox.c</code> to the Project 1 assignment in Moodle. Your edits to <code>textbox.c</code> will be graded according to the following:</p>
+<ul>
+<li>Compiling cleanly: <strong>5 points</strong></li>
+<li>Producing the right output during execution: <strong>15 points</strong></li>
+<li>Follwing the style guidelines: <strong>5 points</strong><br />
+This includes commenting, consistent indentation (you can change the indentation from the starter code, if you want), curly bracket placement, etc.</li>
+<li>Following the design <strong>Up to 20 percent deduction</strong><br />
+This includes implementing and using the functions described above and preprocessor constants, no global variables.</li>
+<li>Late submission <strong>20 percent deduction</strong></li>
+</ul>
+<h1 id="part-3-ballistics-table-generator-25-pts">Part 3 : Ballistics Table Generator (25 pts)</h1>
+<p>One of the first jobs we came up with for computers was calculating ballistics tables, charts that tell you where a projectile could be expected to land if you launch it under particular circumstances. We've come up with lots of varied (and peaceful) things to do with computers since then, but it can still be interesting to think about these problems from the early days of computing. That's what you're going to do for this program.</p>
+<p>The following figure shows an ideal path of a projectile. On a flat surface, if there's no air resistance, it follows a parabolic path that depends on how fast it's going when it leaves the point of origin, <var>v<sub>0</sub></var>, and at what angle, <var>a</var>.</p>
+<div class="figure">
+<img src="ballistics.png" alt="Figure: ideal, parabolic path of a projectile." />
+<p class="caption">Figure: ideal, parabolic path of a projectile.</p>
+</div>
+<p>Specifically, the height of an idealized projectile at <var>t</var> seconds after launch will be determined by the following formula, where <var>v<sub>0</sub></var> is its initial speed in <var>m/s</var>, <var>a</var> is the angle at which it begins traveling (measured from the ground), and <var>g</var> is gravitational acceleration (use <var>9.81 m/s<sup>2</sup></var>).</p>
+<p><var>v<sub>0</sub> t sin( a ) - g t<sup>2</sup> / 2.0</p>
+<p>Horizontally, the projectile travels until it hits the ground. So, after <var>t</var> seconds of flight, the following formula tells the distance, <var>d</var>, it has traveled from its point of origin.</p>
+<p><var>v<sub>0</sub> t cos( a )</p>
+<p>Your <code>ballistics.c</code> program will prompt the user for a double value representing the initial projectile velocity. Use the following prompt (there's a space after the colon).</p>
+<pre><code>V0: </code></pre>
+<p>After the user types in a value and presses enter, your program should first print a blank line (this extra line is to make the output look OK when it's sent to a file). Then, print a table like the following (this one's for an initial velocity of 10):</p>
+<pre><code>     angle |         v0 |       time |   distance
+-----------+------------+------------+-----------
+         0 |     10.000 |      0.000 |      0.000
+         5 |     10.000 |      0.178 |      1.770
+        10 |     10.000 |      0.354 |      3.486
+        15 |     10.000 |      0.528 |      5.097
+        20 |     10.000 |      0.697 |      6.552
+        25 |     10.000 |      0.862 |      7.809
+        30 |     10.000 |      1.019 |      8.828
+        35 |     10.000 |      1.169 |      9.579
+        40 |     10.000 |      1.310 |     10.039
+        45 |     10.000 |      1.442 |     10.194
+        50 |     10.000 |      1.562 |     10.039
+        55 |     10.000 |      1.670 |      9.579
+        60 |     10.000 |      1.766 |      8.828
+        65 |     10.000 |      1.848 |      7.809
+        70 |     10.000 |      1.916 |      6.552
+        75 |     10.000 |      1.969 |      5.097
+        80 |     10.000 |      2.008 |      3.486
+        85 |     10.000 |      2.031 |      1.770
+        90 |     10.000 |      2.039 |      0.000</code></pre>
+<p>This table has four columns, with a header at the top. Columns are separated by a vertical bar, with a space on either side of every bar. Values in the table are printed in a 10-character field, with the value rounded to three fractional digits for real-valued fields. The first column samples different values for the angle, <var>a</var>, every five degrees from 0 to 90 degrees. The second column gives the initial velocity, entered by the user. The third column reports the number of seconds the projectile is in the air, and the last column reports the distance, <var>d</var> it travels from its point of origin.</p>
+<p>How are you going to generate this table? Well, the first two columns are easy. The initial velocity is given by the user, and the angle is sampled every five degrees. For the flight time, you just have to figure out when the height of the projectile gets back down to zero; that's when it hits the ground. Look at the formula for the projectile height given above, and solve for the value of <var>t</var> that yields a height of zero. This gives you a quadratic equation, so solving it would be a good a good application for the quadratic formula. In fact, this quadratic equation is so simple, there are definitely some opportunities to simplify your solution.</p>
+<p>You can assume the initial velocity given by the user is a non-negative real number. You don't have to error-check this input. There will be plenty of opportunities for that kind of error checking on future projects.</p>
+<h2 id="design-and-implementation-1">Design and Implementation</h2>
+<p>The starter contains a partial implementation for the <code>ballistics.c</code> program. You get to fill in the functions and create meaningful named constants to make the program easy to understand and modify. You'll define and use the following three functions. You can have more if you want.</p>
+<ul>
+<li><p><code>double flightTime( int angle, double v0 )</code><br />
+Given the angle in degrees that a projectile leaves the ground and its initial velocity, this function should return the time the projectile is in the air.</p></li>
+<li><p><code>void tableRow( int angle, double v0, double t )</code><br />
+This function prints out a row of the table, given the angle and initial velocity (like the previous function) and the flight time (the output from the previous function), it should print a row of the table reporting these three values, along with the distance the projectile travels.</p></li>
+<li><p><code>int main()</code><br />
+This is the starting point for running your program. It will read input from the user, print the table header, then use the other two functions to print the rest of the table.</p></li>
+</ul>
+<p>Be sure to fill in the block comments for the source file and the functions you get to write. For preprocessor constants you define, be sure to give a short Javadoc-style comment that says what they're for.</p>
+<h2 id="math">Math</h2>
+<p>For this problem, we'll need to use some parts of the math library, for calculating the sine and cosine of the launch angle, <var>a</var> and for the square root calculation, if you need it. The functions you need are declared in the <code>math.h</code> header; the partial implementation from the starter already includes it for you. You'll also need to link with the math library. The compiler option for this is given below.</p>
+<p>The C functions for sine, cosine and square root are a lot like the static methods in the Java Math class. Here's how they work:</p>
+<ul>
+<li><code>double sin( double a )</code><br />
+This function returns the sine of the angle, a, given in radians.</li>
+<li><code>double cos( double a )</code><br />
+This function returns the cosine of the angle, a, given in radians.</li>
+<li><code>double sqrt( double v )</code><br />
+This function returns the (non-negative) square root of the given (non-negative) value, v.</li>
+</ul>
+<p>Notice that the sin() and cos() functions expect an angle in radians, but, elsewhere, angles are described in degrees. So, you'll have to convert. For this, you'll probably want to use the preprocessor constant <code>M_PI</code> (the mathematical constant PI). This value is commonly defined in the <code>math.h</code> header, but it's not actually part of the C99 standard. There's an option for defining it anyway, given below in the compile instructions.</p>
+<h2 id="testing-1">Testing</h2>
+<p>This program may use the <code>M_PI</code> constant and it will probably need functions from the math library. You can use the <code>-D_GNU_SOURCE</code> to enable the constant for PI, and the <code>-lm</code> flag will tell the compiler to link with this library:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">gcc</span> -D_GNU_SOURCE -Wall -std=c99 ballistics.c -o ballistics -lm</code></pre></div>
+<p>This program is easy to run with input entered by the user. While you're developing and debugging, you may just want to type the input value yourself. Once you think it's running correctly, you can start comparing the output against expected output for our provided test cases. You can use commands like the following:</p>
+<pre><code>$ ./ballistics &lt; input-b1.txt &gt;| output.txt
+$ echo $?
+0
+$ diff output.txt expected-b1.txt</code></pre>
+<p>We're providing four test cases to try your program with, each with an input file and an expected output file. They provide different values for the initial velocity, including one with an initial velocity of zero.</p>
+<h2 id="grading-2">Grading</h2>
+<p>For this part of the assignment, you'll be submitting your modified source file, <code>ballistics.c</code> to the Project 1 assignment in Moodle. We'll grade it using the same criteria as the <code>textbox.c</code> program:</p>
+<ul>
+<li>Compiling cleanly: <strong>5 points</strong></li>
+<li>Producing the right output during execution: <strong>15 points</strong></li>
+<li>Follwing the style guidelines: <strong>5 points</strong><br />
+commenting, consistent indentation, curly bracket placement, magic numbers, etc.</li>
+<li>Following the design <strong>Up to 20 percent deduction</strong><br />
+Implementing and using the exptected functions, no global variables.</li>
+<li>Late submission <strong>20 percent deduction</strong></li>
+</ul>
+<h1 id="notes-on-completing-the-assignment">Notes on Completing the Assignment</h1>
+<p>Of course, before you submit, you'll want to be sure both of your programs are consistent with the CSC 230 <a href="https://www.csc2.ncsu.edu/courses/csc230/coding_style.html">Style Guidelines</a>. Also, make sure they compile cleanly (no errors or warnings) on a common platform machine using the required compiler options.</p>
+<p>There is a 24 hour window for late submissions. You'll be permitted to submit your assignment up to 24 hours past the due date, but it will cost you a <em>20 percent</em> deduction if you submit your assignment late.</p>
+<h1 id="common-problems">Common Problems</h1>
+<ul>
+<li><p>While developing, if a program enters an infinite loop, use <code>Ctrl+C</code> to stop it.</p></li>
+<li><p>Make sure you submit source files (ending in .c), not your executable programs.</p></li>
+<li><p>Make sure you've submitted all of your files in the Moodle assignment for Project 1. After submitting, you can go back and check to make sure your files are all there.</p></li>
+<li><p>Contact the teaching staff if you run into a problem submitting your work. Or, visit Piazza and see if someone else has run into the same kind of problem.</p></li>
+</ul>
+<p><a name="outcomes"></a></p>
+<h1 id="learning-outcomes">Learning Outcomes</h1>
+<p>The syllabus lists a number of learning outcomes for this course. This assignment is intended to support several of theses:</p>
+<ul>
+<li><p>Write small to medium C programs having several separately-compiled modules</p></li>
+<li><p>Explain what happens to a program during preprocessing, lexical analysis, parsing, code generation, code optimization, linking, and execution, and identify errors that occur during each phase. In particular, they will be able to describe the differences in this process between C and Java.</p></li>
+<li><p>Correctly identify error messages and warnings from the preprocessor, compiler, and linker, and avoid them.</p></li>
+<li><p>Find and eliminate runtime errors using a combination of logic, language understanding, trace printout, and gdb or a similar command-line debugger.</p></li>
+<li><p>Interpret and explain data types, conversions between data types, and the possibility of overflow and underflow</p></li>
+<li><p>Explain, <em>inspect</em>, and implement <em>programs using structures such as enumerated types, unions, and constants and arithmetic, logical, relational, assignment, and bitwise operators.</em></p></li>
+<li><p>Trace and reason about variables and their scope in a single function, across multiple functions, and across multiple modules.</p></li>
+<li><p>Write, debug, and modify programs using library utilities, including, but not limited to assert, the math library, the string library, random number generation, variable number of parameters, standard I/O, and file I/O</p></li>
+<li><p>Use simple command-line tools to design, document, debug, and maintain their programs.</p></li>
+<li><p>Distinguish key elements of the syntax (what's legal), semantics (what does it do), and pragmatics (how is it used) of a programming language.</p></li>
+</ul>
+</body>
+</html>
